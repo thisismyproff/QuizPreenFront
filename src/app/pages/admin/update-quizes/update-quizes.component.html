@@ -1,0 +1,66 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Update Quiz
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="container" #registerFormQuiz="ngForm" *ngIf="quizData" (ngSubmit)="formSubmit()" >
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Title</mat-label>
+                <input name="Title" matInput placeholder="Enter Quiz title"  [(ngModel)]="quizData.title" required  />
+                <mat-hint>Something like "General Knowledge"</mat-hint>
+                <mat-error *ngIf="registerFormQuiz.controls['Title']?.invalid && (registerFormQuiz.controls['Title']?.dirty || registerFormQuiz.controls['Title']?.touched)">
+                    Title is required.
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea name="Description" matInput placeholder="Enter Quiz Description" required rows="6" [(ngModel)]="quizData.description"></textarea>
+                <mat-error *ngIf="registerFormQuiz.controls['Description']?.invalid && (registerFormQuiz.controls['Description']?.dirty || registerFormQuiz.controls['Description']?.touched)">
+                    Description is required.
+                </mat-error>
+            </mat-form-field>
+            <div style="display: flex; justify-content: space-between;">
+                
+                <mat-form-field class="half-width" appearance="outline">
+                    <mat-label>Maximum Marks</mat-label>
+                    <input name="maxMarks" type="number" matInput placeholder="Enter Maximum marks for Quiz" required  [(ngModel)]="quizData.maxMarks" />
+                    <mat-hint>Something like 100</mat-hint>
+                    <mat-error *ngIf="registerFormQuiz.controls['maxMarks']?.invalid && (registerFormQuiz.controls['maxMarks']?.dirty || registerFormQuiz.controls['maxMarks']?.touched)">
+                        Maximum Marks is required
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field class="half-width" appearance="outline">
+                    <mat-label>Number Of Questions</mat-label>
+                    <input name="numberOfQuestions" type="number" matInput placeholder="Enter number of questions in quizData" required [(ngModel)]="quizData.numberOfQuestions" />
+                    <mat-error *ngIf="registerFormQuiz.controls['numberOfQuestions']?.invalid && (registerFormQuiz.controls['numberOfQuestions']?.dirty || registerFormQuiz.controls['numberOfQuestions']?.touched)">
+                        Number Of Questions is required.
+                    </mat-error>
+                </mat-form-field>
+                
+            </div>
+            
+            
+            <mat-form-field appearance="outline" class="half-width">
+                <mat-label>Category</mat-label>
+                <mat-select name="Category" [(ngModel)]="quizData.category.categoryId">
+                    <mat-option *ngFor="let c of categories" [value]="c.categoryId"  >
+                        {{c.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            
+            <mat-slide-toggle  name="active" [(ngModel)]="quizData.active" style="margin-left: 20px;" >Publish</mat-slide-toggle>
+            
+            
+            <div style="display: flex; justify-content: space-evenly;">
+                <button type="submit" mat-raised-button color="accent" [disabled]="registerFormQuiz.invalid">Update</button>
+                <button mat-raised-button color="primary" type="button" (click)="registerFormQuiz.resetForm()">Clear</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,98 @@
+<mat-card>
+    <mat-card-header>
+        <div  mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>
+            Quiz Attempts
+        </mat-card-title>
+        <mat-card-subtitle>
+            By Category
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="example-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Write the name of Category/Quiz" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="quizId">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.quizId}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef> Quiz Title </th>
+              <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="category.title">
+              <th mat-header-cell *matHeaderCellDef> Category Title </th>
+              <td mat-cell *matCellDef="let element"> {{element.category.title}} </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="attempts">
+              <th mat-header-cell *matHeaderCellDef> Attempts </th>
+              <td mat-cell *matCellDef="let element"> {{element.attempts}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr>
+          </table>
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-header>
+        <div  mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>
+             Percentage  
+        </mat-card-title>
+        <mat-card-subtitle>
+            By Quiz
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="example-container">
+        <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter1($event)" placeholder="Write the name of Quiz" #input1>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource1">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="quizId">
+              <th mat-header-cell *matHeaderCellDef> Quiz ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.quizId}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="userId">
+              <th mat-header-cell *matHeaderCellDef> User ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="quizTitle">
+              <th mat-header-cell *matHeaderCellDef> Quiz Title </th>
+              <td mat-cell *matCellDef="let element"> {{element.quizTitle}} </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="percentageObtained">
+              <th mat-header-cell *matHeaderCellDef> Percentage </th>
+              <td mat-cell *matCellDef="let element"> {{element.percentageObtained}} %</td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns1; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input1.value}}"</td>
+              </tr>
+          </table>
+    </mat-card-content>
+</mat-card>

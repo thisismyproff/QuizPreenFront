@@ -1,0 +1,28 @@
+
+  <mat-toolbar color="primary" class="mb20">
+    <a routerLink="/" mat-mini-fab color="primary" >
+      <mat-icon>book</mat-icon>
+    </a>
+    <span style="margin-left:5px;">QuizPreen</span>
+    <span class="spacer"></span>
+    <a routerLink="/login" *ngIf="!isLoggedIn" >
+      <button mat-flat-button color="primary">
+        <mat-icon>login</mat-icon>
+        <span> Login</span>
+      </button>
+    </a>
+    <a routerLink="/signup" *ngIf="!isLoggedIn" >
+      <button mat-flat-button color="primary" class="ml20">
+        <mat-icon>person_add</mat-icon>
+        <span> Signup</span>
+      </button>
+    </a>
+    <a  color="primary" *ngIf="isLoggedIn && user!= null" class="text-center mr20 " style="font-size: medium;" >
+      Welcome {{user.username}}
+    </a>
+    <a routerLink="/" *ngIf="isLoggedIn" (click)="logout()">
+      <button mat-mini-fab color="primary" style="margin-left: 5px;">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </a>
+  </mat-toolbar>

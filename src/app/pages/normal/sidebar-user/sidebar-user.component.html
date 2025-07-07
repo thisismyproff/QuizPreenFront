@@ -1,0 +1,17 @@
+<mat-card style="margin-bottom: 10px;">
+    <mat-action-list>
+        <div mat-subheader>Menu</div>
+        <button mat-list-item routerLink="/user-dashboard/loadQuiz/0">
+            <mat-icon mat-list-icon>home</mat-icon>
+            Home 
+        </button>
+        <button (click)="getProfile()" mat-list-item>
+            <mat-icon mat-list-icon>account_circle</mat-icon>
+            Profile 
+        </button>
+        <button mat-list-item [routerLink]="'/user-dashboard/loadQuiz/' + c.categoryId" *ngFor="let c of categories" >
+            <mat-icon mat-list-icon>category</mat-icon>
+            {{c.title}} 
+        </button>
+    </mat-action-list>
+</mat-card>

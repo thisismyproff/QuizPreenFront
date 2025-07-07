@@ -1,0 +1,7 @@
+.full-width {
+    width: 100%;
+}
+.example-header-image {
+    background-image: url(src\assets\profile.png);
+    background-size: cover;
+  }

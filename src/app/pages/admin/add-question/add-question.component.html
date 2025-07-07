@@ -1,0 +1,76 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Add Question
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="container" #registerFormQuiz="ngForm" (ngSubmit)="formSubmit()">
+            <!-- <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Question</mat-label>
+                <textarea name="Question" matInput placeholder="Enter Question"  [(ngModel)]="question.content" required cols="10"  ></textarea>
+                <mat-error *ngIf="registerFormQuiz.controls['Question']?.invalid && (registerFormQuiz.controls['Question']?.dirty || registerFormQuiz.controls['Question']?.touched)">
+                    Question is required.
+                </mat-error>
+            </mat-form-field> -->
+            <!-- app.component.html -->
+
+            <ckeditor [editor]="Editor" data="<p>Enter Question</p>"
+                name="content"
+                [(ngModel)]="question.content"
+                ></ckeditor>
+
+            <div style="display: flex; justify-content: space-between;">
+                
+                <mat-form-field class="half-width" appearance="outline">
+                    <mat-label>Option 1</mat-label>
+                    <input name="option1"  matInput placeholder="Enter Option 1" required  [(ngModel)]="question.option1" />
+                    <mat-error *ngIf="registerFormQuiz.controls['option1']?.invalid && (registerFormQuiz.controls['option1']?.dirty || registerFormQuiz.controls['option1']?.touched)">
+                        Option 1 is required
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field class="half-width" appearance="outline">
+                    <mat-label>Option 2</mat-label>
+                    <input name="option2"  matInput placeholder="Enter Option 2" required  [(ngModel)]="question.option2" />            
+                    <mat-error *ngIf="registerFormQuiz.controls['option2']?.invalid && (registerFormQuiz.controls['option2']?.dirty || registerFormQuiz.controls['option2']?.touched)">
+                        Option 2 is required
+                    </mat-error>
+                </mat-form-field>
+                
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                
+                <mat-form-field class="half-width" appearance="outline">
+                    <mat-label>Option 3</mat-label>
+                    <input name="option3"  matInput placeholder="Enter Option 3" required  [(ngModel)]="question.option3" />            
+                    <mat-error *ngIf="registerFormQuiz.controls['option2']?.invalid && (registerFormQuiz.controls['option3']?.dirty || registerFormQuiz.controls['option3']?.touched)">
+                        Option 3 is required
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field class="half-width" appearance="outline">
+                    <mat-label>Option 4</mat-label>
+                    <input name="option4"  matInput placeholder="Enter Option 4" required  [(ngModel)]="question.option4" />            
+                    <mat-error *ngIf="registerFormQuiz.controls['option4']?.invalid && (registerFormQuiz.controls['option4']?.dirty || registerFormQuiz.controls['option4']?.touched)">
+                        Option 4 is required
+                    </mat-error>
+                </mat-form-field>
+                
+            </div>
+            <mat-form-field class="half-width" appearance="outline">
+                <mat-label>Select Answer</mat-label>
+                <mat-select required name="Answer" [(ngModel)]="question.answer">
+                    <mat-option value="option1" *ngIf="question.option1" [value]="question.option1">{{question.option1}}</mat-option>
+                    <mat-option value="option2" *ngIf="question.option2" [value]="question.option2">{{question.option2}}</mat-option>
+                    <mat-option value="option3" *ngIf="question.option3" [value]="question.option3">{{question.option3}}</mat-option>
+                    <mat-option value="option4" *ngIf="question.option4" [value]="question.option4">{{question.option4}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div style="display: flex; justify-content: space-evenly;">
+                <button type="submit" mat-raised-button color="accent" [disabled]="registerFormQuiz.invalid">Add</button>
+                <button mat-raised-button color="primary" type="button" (click)="registerFormQuiz.resetForm()">Clear</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

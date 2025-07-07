@@ -1,0 +1,12 @@
+.example-header-image {
+    background-image: url(src\assets\speech-bubble.png);
+    background-size: cover;
+  }
+
+  mat-card {
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin: 10px;
+  }

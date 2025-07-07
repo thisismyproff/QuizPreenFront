@@ -1,0 +1,44 @@
+<h1>Questions of {{quizTitle}}</h1>
+
+<mat-card *ngFor="let q of questions;let i = index" >
+    <mat-card-header>
+        <mat-card-subtitle>
+            Question {{i+1}}
+        </mat-card-subtitle>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title  style="font-weight:normal;"><span [innerHTML]="q.content"></span></mat-card-title>
+        
+    </mat-card-header>
+    <mat-card-content>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                   A: {{q.option1}} 
+                </div>
+                <div class="col-md-6">
+                   B: {{q.option2}}
+                </div>
+                <div class="col-md-6">
+                   C: {{q.option3}}
+                </div>
+                <div class="col-md-6">
+                   D: {{q.option4}}
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <p style="margin: 5px;"><b>Correct Answer:</b> {{q.answer}}</p>
+        </div>
+    </mat-card-content>
+    <button mat-mini-fab color="warn" (click)="deleteQuestion(q.questionId)">
+        <mat-icon>delete</mat-icon>
+    </button>
+    <mat-card-actions >
+        
+    </mat-card-actions>
+</mat-card>
+<div class="container" class="text-center">
+    <button mat-mini-fab color="warn" [routerLink]="'/admin-dashboard/add-question/'+ quizId" >
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+

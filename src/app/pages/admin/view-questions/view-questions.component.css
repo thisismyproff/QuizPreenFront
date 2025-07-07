@@ -1,0 +1,11 @@
+.example-header-image {
+    background-image: url(src\assets\ideas.png);
+    background-size: cover;
+  }
+
+  mat-card {
+    margin-bottom: 10px;
+  }
+  button {
+    margin: 10px;
+  }

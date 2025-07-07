@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-ins"></div>
+                    <mat-card-title>
+                        Read the instructions of this page carefully
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        One step more to go
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <h2>
+                        {{quiz.title}}
+                    </h2>
+                    <h3>
+                        {{quiz.description}}
+                    </h3>
+                    <mat-divider></mat-divider>
+                    <h2>Important instructions</h2>
+                    <mat-list>
+                        <mat-list-item>
+                            <p>1.This quiz is only for practice purpose.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>2.Duration of this particluar quiz is as followed as mentioned in Quiz timer.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>3.You can attempt the quiz any number of times.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>4.There are  <b>{{quiz.numberOfQuestions}} questions</b>  in the quiz and all questions are <b>Compulsory</b>.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>5.Each question of carries <b>{{marksPerQuestion}}</b> marks. No negative marking is implemented in this quiz.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>6.All questions are MCQ type.</p>
+                        </mat-list-item>
+
+                    </mat-list>
+                    <mat-divider></mat-divider>
+                    <h2>Attempting Quiz</h2>
+                    <mat-list>
+                        <mat-list-item>
+                            <p>1.Click <b>Start</b> button to start the quiz.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>2.The timer will start the moment you click <b>Start</b> button.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>3.You cannot resume this quiz if interrupted due to any reason.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>4.Click on next button to move to next question.</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>5.Click on <b>Submit</b> button to for completionof quiz. </p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p>6.Report of quiz is auto-genrated.</p>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+                <mat-card-actions class="text-center">
+                    <button mat-flat-button color="primary" (click)="startQuiz()">
+                        <mat-icon>start</mat-icon>
+                        <span> Start</span>
+                      </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>All Quizes</mat-card-title>
+    </mat-card-header>
+</mat-card>
+<mat-card *ngFor="let q of quizes" >
+    <mat-card-header>
+        <div  mat-card-avatar class="example-header-image"></div>
+        <mat-card-title matBadge="{{ q.active ? 'On' : 'Off' }}" [matBadgeOverlap]="false" [matBadgeColor]="q.active ? 'accent' : 'warn'" >{{q.title}}</mat-card-title>
+        <mat-card-subtitle>
+            {{q.category.title}} 
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{q.description}}</p>
+        <button mat-stroked-button color="primary">Max Marks {{q.maxMarks}}</button>
+        <button mat-stroked-button color="accent">Questions 50</button>
+    </mat-card-content>
+    <mat-card-actions >
+        <button mat-raised-button color="primary" [routerLink]="'/admin-dashboard/view-questions/'+ q.quizId+'/'+q.title">
+            <mat-icon>question_mark</mat-icon> View 
+        </button>
+        <button mat-stroked-button color="accent" [routerLink]="'/admin-dashboard/quiz/'+ q.quizId" matTooltip="Update Quiz"> 
+            <mat-icon>update</mat-icon> Quiz 
+        </button>
+        <button mat-mini-fab color="warn" (click)="deleteQuiz(q.quizId)" matTooltip="Delete Quiz">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+<div class="container text-center" style="margin-bottom: 10px;">
+    <button mat-flat-button color="primary" routerLink="/admin-dashboard/add-quiz">Add New Quiz</button>
+</div>

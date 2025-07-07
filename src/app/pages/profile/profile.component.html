@@ -1,0 +1,65 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Profile Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container" style="overflow: hidden;">
+        <div class="container text-center">
+            <img src="assets\default-profile.png" class="profile-image"  alt="">
+            <h1 class="header"> {{user.name}} </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-10 offset-md-1" style="border:1">
+              <div class="content-text">
+                <div class="content-row">
+                    <div class="content-cell">
+                        Username
+                    </div>
+                    <div class="content-cell">
+                        {{ user.username }}
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="content-cell">
+                        UserId
+                    </div>
+                    <div class="content-cell">
+                        QP{{ user.id }}
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="content-cell">
+                        Phone
+                    </div>
+                    <div class="content-cell">
+                        {{ user.phone }}
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="content-cell">
+                        Role
+                    </div>
+                    <div class="content-cell">
+                        {{ loginService.getUserRole() }}
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="content-cell">
+                        Status
+                    </div>
+                    <div class="content-cell">
+                        {{ user.enabled?"Active":"Inactive" }}
+                    </div>
+                </div>
+            </div>            
+            </div>
+        </div>
+      </div> 
+    </mat-card-content>
+    <mat-card-actions class="text-center" *ngIf="this.loginService.isLoggedIn() && this.loginService.getUserRole()=='ADMIN' ">
+      <button mat-raised-button color="accent" [routerLink]="'/admin-dashboard/update-profile/'+user.username">UPDATE</button>
+    </mat-card-actions>
+    <mat-card-actions class="text-center" *ngIf="this.loginService.isLoggedIn() && this.loginService.getUserRole()=='NORMAL' ">
+      <button mat-raised-button color="accent" [routerLink]="'/user-dashboard/update-profile/'+user.username">UPDATE</button>
+    </mat-card-actions>
+</mat-card>

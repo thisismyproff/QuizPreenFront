@@ -1,0 +1,12 @@
+.example-header-ins {
+    background-image: url(src\assets\research.png);
+    background-size: cover;
+  }
+
+  mat-card {
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin: 10px;
+  }

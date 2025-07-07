@@ -1,0 +1,71 @@
+
+        <mat-card>
+        <mat-card-header>
+            <div  mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+                Update Profile
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+                
+        <form (ngSubmit)="formSubmit()" #registerForm="ngForm" style="margin-top: 20px;">
+            <!-- Username Field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input [(ngModel)]="user.username" name="username" matInput placeholder="Enter here" required>
+              <mat-hint>Username must be unique</mat-hint>
+              <mat-error *ngIf="registerForm.controls['username']?.invalid && (registerForm.controls['username']?.dirty || registerForm.controls['username']?.touched)">
+                Username is required.
+              </mat-error>
+            </mat-form-field>
+    
+            <!-- Password Field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input [(ngModel)]="user.password" name="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Enter here" required>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+              <mat-hint>Password must be longer than 8 characters and include a special character</mat-hint>
+              <mat-error *ngIf="registerForm.controls['password']?.invalid && (registerForm.controls['password']?.dirty || registerForm.controls['password']?.touched)">
+                Password is required.
+              </mat-error>
+            </mat-form-field>
+    
+            <!-- Name Field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input [(ngModel)]="user.name" name="name" matInput placeholder="Enter here" required>
+              <mat-error *ngIf="registerForm.controls['name']?.invalid && (registerForm.controls['name']?.dirty || registerForm.controls['name']?.touched)">
+                Name is required.
+              </mat-error>
+            </mat-form-field>
+    
+            <!-- Email Field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input [(ngModel)]="user.email" name="email" matInput placeholder="pat@example.com" type="email" required email>
+              <mat-error *ngIf="registerForm.controls['email']?.hasError('required') && (registerForm.controls['email']?.dirty || registerForm.controls['email']?.touched)">
+                Email is required.
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls['email']?.hasError('email') && !registerForm.controls['email']?.hasError('required') && (registerForm.controls['email']?.dirty || registerForm.controls['email']?.touched)">
+                Please enter a valid email address.
+              </mat-error>
+            </mat-form-field>
+    
+            <!-- MobileNumber Field -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Mobile Number</mat-label>
+              <input [(ngModel)]="user.phone" name="phone" matInput placeholder="Enter here" type="number" required>
+              <mat-error *ngIf="registerForm.controls['phone']?.invalid && (registerForm.controls['phone']?.dirty || registerForm.controls['phone']?.touched)">
+                Please enter a valid mobile number.
+              </mat-error>
+            </mat-form-field>
+    
+            <div style="display: flex; justify-content: space-evenly;">
+              <button type="submit" mat-raised-button color="accent" [disabled]="registerForm.invalid">Update</button>
+              <button mat-raised-button color="primary" type="button" (click)="registerForm.resetForm()">Clear</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>

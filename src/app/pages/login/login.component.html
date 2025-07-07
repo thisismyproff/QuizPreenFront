@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <mat-card>
+      <div class="container text-center">
+        <img src="../../assets/banner-bg.jpg" class="img-fluid" width="50%" alt="Unable to load image">
+      </div>
+      <h1 class="text-center">Login Here</h1>
+      <form (ngSubmit)="formSubmit()" #registerForm="ngForm">
+        <!-- Username Field -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Username</mat-label>
+          <input [(ngModel)]="loginData.username" name="username" matInput 
+          placeholder="Enter here" required>
+          <mat-error *ngIf="registerForm.controls['username']?.invalid && (registerForm.controls['username']?.dirty || registerForm.controls['username']?.touched)">
+            Username is required.
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password Field -->
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input [(ngModel)]="loginData.password" name="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Enter here" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="registerForm.controls['password']?.invalid && (registerForm.controls['password']?.dirty || registerForm.controls['password']?.touched)">
+            Password is required.
+          </mat-error>
+        </mat-form-field>
+
+        <div style="display: flex; justify-content: space-evenly;margin-top: 10%;">
+          <button type="submit" mat-raised-button color="accent" [disabled]="registerForm.invalid">Login</button>
+          <button mat-raised-button color="primary" type="button" (click)="registerForm.resetForm()">Clear</button>
+        </div>
+      </form>
+    </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.example-header-image {
+    background-image: url(src\assets\research.png);
+    background-size: cover;
+  }
+  .example-container {
+    height: 350px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+
+  mat-card {
+    margin-bottom:20px
+  }

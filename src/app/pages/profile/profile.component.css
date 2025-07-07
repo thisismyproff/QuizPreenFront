@@ -1,0 +1,72 @@
+.profile-image {
+    max-width: 200px;
+    max-height: 200px;
+    border: 2px solid gray;
+    border-radius: 50%;
+}
+.container {
+  padding: 20px; /* Add padding for better spacing */
+}
+
+.profile-image {
+  width: 150px; /* Set width of the profile image */
+  height: 150px; /* Set height of the profile image */
+  border-radius: 50%; /* Make the image round */
+  margin-bottom: 20px; /* Add bottom margin */
+}
+
+.header {
+  font-family: 'Helvetica Neue', sans-serif; /* Use a modern font */
+  font-size: 30px; /* Adjust font size as needed */
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Set text color */
+  text-align: center; /* Center align the text */
+  text-transform: uppercase; /* Convert text to uppercase */
+  letter-spacing: 2px; /* Add letter spacing for better readability */
+  margin-bottom: 20px; /* Add bottom margin */
+}
+
+.row {
+  margin-top: 20px; /* Add top margin */
+}
+
+.mat-card-actions {
+  justify-content: center; /* Center align buttons */
+  margin-top: 20px; /* Add top margin */
+}
+
+.content-text {
+  text-transform:capitalize ; /* Convert text to uppercase */
+  letter-spacing: .5px;
+  font-family: Arial, Helvetica, sans-serif; /* Use a modern font */
+  font-size: 20px;
+  padding: 10px; /* Add padding for better spacing */
+  margin-top: 20px; /* Add top margin */
+}
+.content-row {
+  display: flex;
+   /* Add border between rows */
+}
+
+.content-cell {
+  flex: 1; /* Ensure each cell takes equal space */
+  text-align: center; /* Center align text */
+  padding: 20px; /* Add padding for spacing */
+  border: 1px solid #ccc; /* Add border */
+
+  border-collapse: collapse;
+}
+
+.content-text > div > div:first-child {
+  flex: 1; /* Ensure the first div takes up space */
+  font-weight: bold; /* Make the labels bold */
+}
+
+.content-text > div > div:last-child {
+  flex: 2; /* Ensure the second div takes up more space */
+} 
+  /* Example of hover effect */
+.header:hover {
+    color: rgb(126, 126, 13); /* Change text color on hover */
+}
+  

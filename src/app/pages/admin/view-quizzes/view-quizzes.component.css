@@ -1,0 +1,14 @@
+
+
+.example-header-image {
+    background-image: url(src\assets\quiz.png);
+    background-size: cover;
+  }
+
+  mat-card {
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin: 10px;
+  }
