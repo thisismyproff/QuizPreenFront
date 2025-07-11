@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { UserService } from './../../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,7 +10,7 @@ import { error } from 'console';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent  {
-  constructor(private userService:UserService,private snack:MatSnackBar){}
+  constructor(private userService:UserService,private snack:MatSnackBar,private  router:Router){}
 
   hide = true;
    user={
@@ -19,7 +20,7 @@ export class SignupComponent  {
     email:'',
     phone:''
   };
-  
+
   hasSpecialChars(str:any) {
     const specialChars = '!@#$%^&*()_+\-=\[\]{};';
     for (let char of str) {
@@ -30,7 +31,7 @@ export class SignupComponent  {
     return false;
   }
 
-  formSubmit() { 
+  formSubmit() {
     if (this.user.password.length < 8 || !this.hasSpecialChars(this.user.password)) {
       this.snack.open("Password does not follow the guidlines!",'Ok')
     }
@@ -43,6 +44,7 @@ export class SignupComponent  {
           })
         } else {
         Swal.fire("Signup Success","Your registration is success","success");
+          this.router.navigate(['/login']);
         }
       },
       (error) => {
